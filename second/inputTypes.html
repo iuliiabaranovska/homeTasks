@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Input Types</title>
+    <style>
+    html {
+        background: #b0c9d1;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        border: none;
+    }
+    
+    #inputs {
+        font-size: 0;
+        padding: 30px;
+        display: flex;
+    }
+    
+    .oldInputs,
+    .newInputs {
+        flex: 3;
+        width: 50%;
+        font-size: 20px;
+        vertical-align: top;
+    }
+    .oldInputs{
+        text-align: right;
+        padding-right: 100px;
+    }
+    
+    p {
+        font-weight: bold;
+    }
+    </style>
+</head>
+
+<body>
+    <main id="inputs">
+        <section class="oldInputs">
+            <h1>Input types:</h1>
+            <p>IMAGE
+                <input type="image" name="image" src="tree.png" width="200px">
+            </p>
+            <p>TEXT
+                <form>
+                    First name:
+                    <br>
+                    <input type="text" name="firstname">
+                    <br> Last name:
+                    <br>
+                    <input type="text" name="lastname">
+                </form>
+            </p>
+            <p>PASSWORD
+                <form>
+                    User name:
+                    <br>
+                    <input type="text" name="username">
+                    <br> User password:
+                    <br>
+                    <input type="password" name="psw">
+                </form>
+            </p>
+            <p>SUBMIT
+                <form action="action_page.php">
+                    First name:
+                    <br>
+                    <input type="text" name="firstname" value="Mickey">
+                    <br> Last name:
+                    <br>
+                    <input type="text" name="lastname" value="Mouse">
+                    <br>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </p>
+            <p>RADIO
+                <form>
+                    <input type="radio" name="gender" value="male" checked> Male
+                    <br>
+                    <input type="radio" name="gender" value="female"> Female
+                    <br>
+                    <input type="radio" name="gender" value="other"> Other
+                </form>
+            </p>
+            <p>CHECKBOX
+                <form>
+                    <input type="checkbox" name="vehicle1" value="Bike"> I have a bike
+                    <br>
+                    <input type="checkbox" name="vehicle2" value="Car" checked=""> I have a car
+                </form>
+            </p>
+            <p>BUTTON
+                <input type="button" onclick="alert('Hello World!')" value="Click Me!">
+            </p>
+            <p>RESET
+                <form action="demo_form.asp">
+                    Email:
+                    <input type="text" name="email">
+                    <br> Pin:
+                    <input type="text" name="pin" maxlength="4">
+                    <br>
+                    <input type="reset" value="Reset">
+                    <input type="submit" value="Submit">
+                </form>
+                <p>Click on the reset button to reset the form.</p>
+            </p>
+            <p>FILE
+                <br> Please specify a file, or a set of files:
+                <br>
+                <input type="file" name="datafile" size="40">
+            </p>
+            <p>HIDDEN
+                <form action="demo_form.asp">
+                    First name:
+                    <input type="text" name="fname">
+                    <br>
+                    <input type="hidden" name="country" value="Norway">
+                    <input type="submit" value="Submit">
+                </form>
+                <p>The hidden field above is not shown to a user.</p>
+            </p>
+            <p>SELECT
+                <select name="gender">
+                    <option value="m">Male</option>
+                    <option value="f" selected>Female</option>
+                </select>
+                <select name="gender" size="5">
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                </select>
+            </p>
+            <p>TEXTAREA
+                <textarea rows="4" cols="50">
+                    blablablabla
+                </textarea>
+            </p>
+        </section>
+        <section class="newInputs">
+            <h1>Input types (<abbr>HTML5</abbr>):</h1>
+            <p>
+                <span>EMAIL</span>
+                <input type="email">
+            </p>
+            <p>TEXT
+                <br/>
+                <span>Username</span>
+                <input type="text">
+            </p>
+            <p>SEARCH
+                <input type="search" />
+            </p>
+            <p>TELEPHONE
+                <input type="tel">
+            </p>
+            <p>URL
+                <input type="url" />
+            </p>
+            <p>NUMBER (between -5 and 100):
+                <input type="number" min="-5" max="100" />
+            </p>
+            <p>DATE
+                <input type="date" />
+            </p>
+            <p>COLOR
+                <input type="color" />
+            </p>
+            <p>RANGE
+                <input type="range" name="points" min="-10" max="10" />
+            </p>
+            <p>MONTH
+                <input type="month" />
+            </p>
+            <p>WEEK
+                <input type="week" />
+            </p>
+            <p>TIME
+                <input type="time" />
+            </p>
+            <p>DATETIME
+                <input type="datetime" />
+            </p>
+            <p>DATETIME-LOCAL
+                <input type="datetime-local" />
+            </p>
+        </section>
+    </main>
+</body>
+</head>
