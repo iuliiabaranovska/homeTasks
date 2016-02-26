@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+CACHE:
+/clock.css
+/clock.js
+/clock-face.jpg
+
+NETWORK:
+https://fonts.googleapis.com/*
+
+FALLBACK:
+/ /clock1.html
