@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+    <title>Responsive Menu</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+
+<body>
+<header>
+	<h1>Website with responsive navigation menu</h1>
+</header>
+<nav>
+<div class="menu">Menu</div>
+	<ul>
+		<a href="#"><li>Home</li></a>
+		<a href="#"><li>Blog</li></a>
+		<a href="#"><li>Shop</li></a>
+		<a href="#"><li>Cabinet</li></a>
+		<a href="#"><li>About</li></a>
+		<a href="#"><li>Contacts</li></a>
+	</ul>
+
+
+</nav>
+<section>
+	<h1>History</h1>
+	<p>The first site to feature a layout that adapts to browser viewport width was Audi.com launched in late 2001, created by a team at razorfish consisting of Jürgen Spangl and Jim Kalbach (information architecture), Ken Olling (design), and Jan Hoffmann (interface development). Limited browser capabilities meant that for Internet Explorer, the layout could adapt dynamically in the browser whereas for Netscape, the page had to be reloaded from the server when resized.</p>
+	<p>Cameron Adams created a demonstration in 2004 that is still online.By 2008, a number of related terms such as "flexible", "liquid", "fluid", and "elastic" were being used to describe layouts. CSS3 media queries were almost ready for prime time in late 2008/early 2009.[43] Ethan Marcotte coined the term responsive web design (RWD)—and defined it to mean fluid grid/ flexible images/ media queries—in a May 2010 article in A List Apart. He described the theory and practice of responsive web design in his brief 2011 book titled Responsive Web Design. Responsive design was listed as #2 in Top Web Design Trends for 2012 by .net magazine after progressive enhancement at #1.</p>
+	<p>Mashable called 2013 the Year of Responsive Web Design. Many other sources have recommended responsive design as a cost-effective alternative to mobile applications.</p>
+</section>
+
+<script type="text/javascript">
+	$(".menu").on("click", function () {
+		$("nav ul").toggleClass("show-navigation");
+	})
+</script>
+
+
+</body>
+
+</html>
