@@ -1,0 +1,152 @@
+@font-face {
+    font-family: Palatino;
+    src: url('essays1743-webfont.woff');
+}
+
+@font-face {
+    font-family: Palatino;
+    src: url('essays1743-webfont.woff');
+}
+
+@font-face {
+    font-family: FreeSerif;
+    src: url('linlibertine_it-4.2.6-webfont.woff');
+}
+
+@font-face {
+    font-family: OpenSymbol;
+    src: url('linlibertine_re-4.7.5-webfont.woff');
+}
+
+html,
+body {
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-y: scroll;
+    /*-webkit-font-smoothing: antialiased;*/
+}
+
+body {
+    font: large/1.556 "Linux Libertine", "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+    word-spacing: 0.1em;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+}
+
+nav {
+    text-align: center;
+    color: #A52A2A
+}
+
+p,
+ul,
+ol {
+    font-size: large;
+    margin: 1.556em 0;
+}
+
+.c {
+    font-size: medium;
+    line-height: 1.75;
+    margin: 1.75em 0;
+}
+
+.c,
+.a,
+#toc,
+form div {
+    clear: both;
+    text-align: center;
+}
+
+.c a {
+    color: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: FireBrick;
+    border-bottom: 1px dotted;
+}
+
+a:visited {
+    color: RosyBrown;
+    border-bottom: 1px dotted;
+}
+
+.a,
+.u,
+table.bc tbody td {
+    font: 100%/1 "Arial Unicode MS", FreeSerif, OpenSymbol, "DejaVu Sans", sans-serif;
+}
+
+h1 {
+    font-size: 266.7%;
+    line-height: 1.1;
+    text-align: center;
+    width: 100%;
+    margin: 1.49em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+caption,
+thead th {
+    font-family: "Essays 1743", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-shadow: 0 0 1px #667;
+}
+
+.a {
+    font-size: xx-large;
+    line-height: .875;
+    text-shadow: 0 0 2px #667;
+}
+
+h2 {
+    font-size: 210%;
+    line-height: 1.3125;
+    margin: 1.167em 0;
+    text-align: center;
+    clear: both;
+}
+
+h2 {
+    text-align: left;
+    text-transform: inherit;
+}
+
+.pf,
+.fr {
+    border: 1px solid;
+}
+
+.pf {
+    margin: 1.75em 0;
+}
+
+.pf h4 {
+    margin: 0;
+    padding: 4px;
+    background: black;
+    color: white;
+}
+
+.pf .moneybags {
+    min-height: 245px;
+    margin: 0 15px 0 0;
+    padding: 0 190px 1.75em 0;
+    background: white url(http://diveinto.html5doctor.com/i/openclipart.org_johnny_automatic_bag_of_money.png) bottom right no-repeat;
+}
