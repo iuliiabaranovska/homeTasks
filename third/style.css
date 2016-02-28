@@ -14,11 +14,11 @@ header {
     text-align: center;
 }
 
-nav ul {
+.navigation{
     background-color: #8A1252;
     overflow: hidden;
     color: #DBDBDB;
-    padding: 0;
+    padding: 19px;
     margin: 0;
     text-align: center;
     font-size: 1.2em;
@@ -26,20 +26,43 @@ nav ul {
     -webkit-transition: max-height 0.5s;
     -ms-transition: max-height 0.5s;
     -o-transition: max-height 0.5s;
-    -moz-transition: max-height 0.5s;    
+    -moz-transition: max-height 0.5s;
 }
 
-nav ul li {
-    display: inline-block;
+.navigationItem {
+    display: inline;
     padding: 20px;
+    transition-property: background-color, color;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-out;
 }
 
-nav ul li:hover {
+.navigationItem:first-child {
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+    }
+    to {
+        margin-left: 0;
+        position: relative;
+    }
+}
+
+.navigationItem:hover {
     background-color: #825F71;
+    transition-property: background-color, color;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-out;
+    color: white;
 }
 
 a {
     color: #DBDBDB;
+    text-decoration: none;
 }
 
 section {
@@ -51,7 +74,7 @@ section {
 }
 
 .menu {
-    background-color: #85094B;
+    background-color: #751346;
     text-align: left;
     padding: 20px;
     cursor: pointer;
@@ -60,17 +83,23 @@ section {
     font-size: 1.5em;
 }
 
-@media screen and (max-device-width: 640px), (max-width: 580px){
-    nav ul {
+@media screen and (max-device-width: 640px),
+(max-width: 580px) {
+    .navigation {
         max-height: 0;
+        padding: 0;
     }
     .show-navigation {
         max-height: 20em;
     }
-    nav ul li {
+    .navigationItem:first-child {
+        animation-name: none;
+    }
+    .navigationItem {
         width: 100%;
         padding: 15px;
         text-align: left;
+        display: inline-block;
     }
     .menu {
         display: block;
