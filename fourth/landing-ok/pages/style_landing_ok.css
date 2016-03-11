@@ -87,7 +87,6 @@ header>.shadow>h2 {
     margin-left: auto;
     margin-right: auto;
     font-size: 0.9em;
-    font-family: "PTSans-Regular", Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
     font-weight: bold;
     line-height: 2.1;
@@ -125,10 +124,11 @@ article {
 article>h1 {
     font-size: 1.1em;
     color: rgb(255, 255, 255);
-    line-height: 3.25;
+    line-height: 1.25;
 }
 
 article>p {
+	padding-top: 6%;
     font-size: 0.7em;
     color: rgba(255, 255, 255, 0.502);
     line-height: 1.75;
