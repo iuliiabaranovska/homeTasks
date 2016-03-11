@@ -3,6 +3,86 @@
     padding: 0;
     font-size: 24px;
 }
-body{
-	background: url();
+
+@font-face {
+    font-family: "Web-Symbols";
+    src: url("../fonts/WebSymbols-Regular.otf") format("opentype");
+}
+
+// @font-face {
+//     font-family: "Helvetica-Bold";
+//     src: url("../fonts/Helvetica-Bold.otf") format("opentype");
+// }
+@font-face {
+    font-family: "CC-Zoinks";
+    src: url("../fonts/cc-zoinks-medium.ttf") format("truetype");
+}
+
+body {
+    background: url(../images/background.png);
+    background-size: cover;
+}
+
+.pagelayout {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    .pathbar {
+        margin-top: 3%;
+        background: url(../images/pathlogo.png) top left no-repeat;
+        background-size: contain;
+        width: 196px;
+        height: 30px;
+    }
+}
+
+.textlayout {
+    padding-left: 6%;
+    font-family: "CC-Zoinks", Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+}
+
+.textshadow {
+    text-shadow: -2px 2px black, 2px -2px black;
+}
+
+.presentation {
+    display: flex;
+    flex-direction: row;
+    .minilogos {
+        .casinologo {
+            background: url(../images/casinologo.png);
+            background-size: contain;
+            width: 138px;
+            height: 128px;
+        }
+        .starcaption {
+        	padding-top: 45%;
+            display: flex;
+            flex-direction: row;
+        }
+        .star {
+            font-family: "Web-Symbols", Arial, Helvetica, sans-serif;
+            color: rgb(239, 173, 41);
+            line-height: 1.5;
+            font-size: 1.3em;
+        }
+        .nearstar {
+            line-height: 1.059;
+        }
+    }
+    .captions{
+    	.caption{
+    		// span{}
+    		// font-size: 1.3em;
+    	}
+
+    }
 }
