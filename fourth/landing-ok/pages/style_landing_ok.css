@@ -15,39 +15,12 @@ body {
     font-family: "PTSans-Regular", Arial, Helvetica, sans-serif;
 }
 
-.play,
-.meet,
-.discuss {
-    flex: 1.5;
-}
-
-.play {
-    background: url("../images/play.png") center no-repeat;
-    background-size: contain;
-    height: 317px;
-    width: 713px;
-}
-
-.meet {
-    background: url("../images/meet.png") center no-repeat;
-    background-size: contain;
-    height: 367px;
-    width: 709px;
-}
-
-.discuss {
-    background: url("../images/discuss.png") center no-repeat;
-    background-size: contain;
-    height: 308px;
-    width: 499px;
-}
-
-header {
+.header {
     text-align: center;
     display: block;
 }
 
-.logo {
+.header-logo {
     margin-top: 55px;
     display: flex;
     height: 10%;
@@ -55,7 +28,7 @@ header {
     flex-grow: 0.3;
 }
 
-.shadow {
+.header-shadow {
     background: url("../images/shadow.png") center top no-repeat;
     background-size: contain;
     display: flex;
@@ -63,7 +36,7 @@ header {
     justify-content: center;
 }
 
-header>.shadow>h1 {
+.header-caption1 {
     display: block;
     font-size: 1.2em;
     color: rgb(255, 255, 255);
@@ -71,13 +44,13 @@ header>.shadow>h1 {
     font-weight: bold;
 }
 
-header>.shadow>h2 {
+.header-caption2 {
     font-size: 0.7em;
     color: #999999;
     line-height: 1.75;
 }
 
-.download_btn {
+.header-download_btn {
     border-radius: 4px;
     background-color: rgb(38, 168, 219);
     box-shadow: 0px 3px 0px 0px rgba(18, 130, 174, 0.004), inset 0px 2px 0px 0px rgba(255, 255, 255, 0.3);
@@ -93,19 +66,14 @@ header>.shadow>h2 {
     text-align: center;
 }
 
-.footer-spesific{
-	margin-top: 0 !important;
-	margin-bottom: 5%;
-}
-
-content {
+.content {
     display: block;
     width: 65%;
     margin-right: auto;
     margin-left: auto;
 }
 
-section {
+.content-section {
     margin-bottom: 5%;
     display: flex;
     flex-direction: row;
@@ -113,33 +81,64 @@ section {
     align-items: center;
 }
 
-section:last-child {
+.section:last-child {
     margin-bottom: 0;
 }
 
-article {
+.content-section-article {
     flex: 1;
 }
 
-article>h1 {
+.content-section-article-header {
     font-size: 1.1em;
     color: rgb(255, 255, 255);
     line-height: 1.25;
 }
 
-article>p {
-	padding-top: 6%;
+.content-section-article-header-paragraph {
+    padding-top: 6%;
     font-size: 0.7em;
     color: rgba(255, 255, 255, 0.502);
     line-height: 1.75;
 }
 
-footer {
+.content-section-play,
+.content-section-meet,
+.content-section-discuss {
+    flex: 1.5;
+}
+
+.content-section-play {
+    background: url("../images/play.png") center no-repeat;
+    background-size: contain;
+    height: 317px;
+    width: 713px;
+}
+
+.content-section-meet {
+    background: url("../images/meet.png") center no-repeat;
+    background-size: contain;
+    height: 367px;
+    width: 709px;
+}
+
+.content-section-discuss {
+    background: url("../images/discuss.png") center no-repeat;
+    background-size: contain;
+    height: 308px;
+    width: 499px;
+}
+
+.footer {
     display: block;
     text-align: center;
 }
 
-.shadow-upside-down {
+.footer-button--spesific{
+    margin-bottom: 4%;
+}
+
+.footer-shadow{
     padding-bottom: 1%;
     background: url("../images/shadow-upside-down.png") center top no-repeat;
     background-size: contain;
@@ -148,41 +147,37 @@ footer {
     justify-content: center;
 }
 
-footer>.shadow-upside-down>h1 {
+.footer-caption1--spesific{
     margin-top: 7%;
-    font-size: 0.9em;
-    color: rgb(255, 255, 255);
-    line-height: 3.25;
-    font-weight: bold;
 }
 
 @media screen and (max-device-width: 640px),
 (max-width: 580px) {
-    section {
+    .content-section {
         flex-direction: column;
     }
-    .play {
+    .content-section-play {
         background: url("../images/play-mini.png") center no-repeat;
         background-size: contain;
         height: 189px;
         width: 425px;
     }
-    .meet {
+    .content-section-meet {
         display: none;
     }
-    .meet-for-device {
+    .content-section-meet_for_device {
         background: url("../images/meet-mini.png") center no-repeat;
         background-size: contain;
         height: 220px;
         width: 425px;
     }
-    .discuss {
+    .content-section-discuss {
         background: url("../images/discuss-mini.png") center no-repeat;
         background-size: contain;
         height: 216px;
         width: 350px;
     }
-    article>h1 {
+    .content-section-article-header {
         padding-top: 5%;
         line-height: 1.8;
     }
