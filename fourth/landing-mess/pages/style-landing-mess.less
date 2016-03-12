@@ -19,6 +19,12 @@
     src: url("../fonts/cc-zoinks-medium.ttf") format("truetype");
 }
 
+@white: rgb(255,
+255,
+255);
+@yellow: rgb(239,
+173,
+41);
 body {
     background: url(../images/background.png) top center no-repeat;
     background-size: cover;
@@ -28,11 +34,12 @@ body {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
     .pathbar {
-    	margin-left: 6%;
         margin-top: 3%;
         background: url(../images/pathlogo.png) top left no-repeat;
         background-size: contain;
@@ -44,7 +51,7 @@ body {
 .textlayout {
     padding-left: 6%;
     font-family: "CC-Zoinks", Arial, Helvetica, sans-serif;
-    color: rgb(255, 255, 255);
+    color: @white;
     text-transform: uppercase;
     line-height: 1.7;
     display: flex;
@@ -77,12 +84,13 @@ body {
         }
         .star {
             font-family: "Web-Symbols", Arial, Helvetica, sans-serif;
-            color: rgb(239, 173, 41);
+            color: @yellow;
             line-height: 1.5;
             font-size: 1.3em;
         }
         .nearstar {
             line-height: 1.059;
+            padding-left: 2%;
         }
     }
     .captions {
@@ -92,7 +100,7 @@ body {
                 font-size: 1.4em;
                 letter-spacing: 0.03em;
                 &:first-of-type {
-                    color: rgb(239, 173, 41);
+                    color: @yellow;
                 }
             }
         }
@@ -119,18 +127,71 @@ body {
         height: 293px;
     }
 }
-
-.Install___spin_ {
-    font-size: 24px;
-    font-family: "Helvetica";
-    color: rgb(58, 76, 0);
-    font-weight: bold;
+.paragraph_header {
     text-transform: uppercase;
-    line-height: 0.833;
-    text-align: left;
-    text-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
-    position: absolute;
-    left: 308.937px;
-    top: 315.004px;
-    z-index: 54;
+}
+
+.spacearoundblock {
+    padding: 5%;
+}
+
+.plusitem {
+    content: "+";
+}
+
+.staritem {
+    content: "R";
+}
+
+.about {
+    display: flex;
+    flex-direction: row;
+    .article {
+        flex: 1;
+        .paragraph,
+        .list>li,
+        .quoteuser {
+            padding: 5% 5% 0% 0%;
+            font-size: 0.6em;
+            font-family: "Arial";
+            color: @white;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .list>ul {
+            list-style: none;
+            padding: 0;
+        }
+        .list>li {
+            list-style-position: inside;
+            padding: 0%;
+            &:before {
+                content: "R";
+                /* FontAwesome Unicode */
+                font-family: "Web-Symbols", Arial, Helvetica, sans-serif;
+                display: inline-block;
+                margin-left: -1.3em;
+                /* same as padding-left set on li */
+                width: 1.3em;
+                /* same as padding-left set on li */
+                color: @yellow;
+            }
+        }
+        .list>li:first-of-type {
+            padding: 5% 0% 0% 0%;
+        }
+        .paragraph_header {
+            font-family: "CC-Zoinks", Arial, Helvetica, sans-serif;
+            color: @yellow;
+            text-transform: uppercase;
+            .textshadow;
+        }
+    }
+    .description {
+        .list {
+            li:before {
+                .plusitem;
+            }
+        }
+    }
 }
