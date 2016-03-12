@@ -9,17 +9,18 @@
     src: url("../fonts/WebSymbols-Regular.otf") format("opentype");
 }
 
-// @font-face {
-//     font-family: "Helvetica-Bold";
-//     src: url("../fonts/Helvetica-Bold.otf") format("opentype");
-// }
+@font-face {
+    font-family: "Helvetica-Bold";
+    src: url("../fonts/Helvetica-Bold.otf") format("opentype");
+}
+
 @font-face {
     font-family: "CC-Zoinks";
     src: url("../fonts/cc-zoinks-medium.ttf") format("truetype");
 }
 
 body {
-    background: url(../images/background.png);
+    background: url(../images/background.png) top center no-repeat;
     background-size: cover;
 }
 
@@ -31,6 +32,7 @@ body {
 
 .header {
     .pathbar {
+    	margin-left: 6%;
         margin-top: 3%;
         background: url(../images/pathlogo.png) top left no-repeat;
         background-size: contain;
@@ -56,7 +58,12 @@ body {
 .presentation {
     display: flex;
     flex-direction: row;
+    padding-top: 5%;
     .minilogos {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         .casinologo {
             background: url(../images/casinologo.png);
             background-size: contain;
@@ -64,7 +71,7 @@ body {
             height: 128px;
         }
         .starcaption {
-        	padding-top: 45%;
+            padding-top: 20%;
             display: flex;
             flex-direction: row;
         }
@@ -78,11 +85,52 @@ body {
             line-height: 1.059;
         }
     }
-    .captions{
-    	.caption{
-    		// span{}
-    		// font-size: 1.3em;
-    	}
-
+    .captions {
+        flex: 1;
+        .caption {
+            .subcaption {
+                font-size: 1.4em;
+                letter-spacing: 0.03em;
+                &:first-of-type {
+                    color: rgb(239, 173, 41);
+                }
+            }
+        }
+        .install_btn {
+            background: url(../images/btnbackground.png) top center no-repeat;
+            background-size: contain;
+            width: 329px;
+            height: 101px;
+            font-family: "Helvetica-Bold", Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1em;
+            text-shadow: 0 2px 0 rgba(255, 255, 255, .5);
+            color: #3a4c00;
+            line-height: 3.7;
+            text-align: center;
+        }
     }
+    .biglogo {
+        flex: 2;
+        background: url(../images/sloto.png) top center no-repeat;
+        background-size: contain;
+        width: 476px;
+        height: 293px;
+    }
+}
+
+.Install___spin_ {
+    font-size: 24px;
+    font-family: "Helvetica";
+    color: rgb(58, 76, 0);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.833;
+    text-align: left;
+    text-shadow: 0px 2px 0px rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 308.937px;
+    top: 315.004px;
+    z-index: 54;
 }
