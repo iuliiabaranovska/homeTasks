@@ -28,6 +28,7 @@
 body {
     background: url(../images/background.png) top center no-repeat;
     background-size: cover;
+    // height: 100%
 }
 
 .pagelayout {
@@ -127,6 +128,7 @@ body {
         height: 293px;
     }
 }
+
 .paragraph_header {
     text-transform: uppercase;
 }
@@ -143,6 +145,21 @@ body {
     content: "R";
 }
 
+.squarephotobox {
+    background: #000;
+    width: 6.6vw;
+    height: 6.6vw;
+    border: 3px solid #000;
+    border-radius: 0.7vw;
+    -webkit-box-shadow: 0 0 29px 2px rgba(236, 236, 187, 0.72), inset 0px 0px 7px 3px rgba(166, 120, 73, 0.67);
+    -moz-box-shadow: 0 0 29px 2px rgba(236, 236, 187, 0.72), inset 0px 0px 7px 3px rgba(166, 120, 73, 0.67);
+    box-shadow: 0 0 29px 2px rgba(236, 236, 187, 0.72), inset 0px 0px 7px 3px rgba(166, 120, 73, 0.67);
+    background: url(../images/anna.png) top center no-repeat;
+    background-size: contain;
+    flex: 1.16;
+    margin: 18% 6% 0 0;
+}
+
 .about {
     display: flex;
     flex-direction: row;
@@ -151,20 +168,20 @@ body {
         .paragraph,
         .list>li,
         .quoteuser {
+            display: flex;
+            flex-direction: row;
             padding: 5% 5% 0% 0%;
             font-size: 0.6em;
             font-family: "Arial";
             color: @white;
-            line-height: 1.6;
+            line-height: 1.8;
             text-align: left;
         }
-        .list>ul {
-            list-style: none;
-            padding: 0;
-        }
         .list>li {
+            padding-top: 0%;
+            padding-left: 6%;
             list-style-position: inside;
-            padding: 0%;
+            // list-style: none;
             &:before {
                 content: "R";
                 /* FontAwesome Unicode */
@@ -179,7 +196,7 @@ body {
             }
         }
         .list>li:first-of-type {
-            padding: 5% 0% 0% 0%;
+            padding: 5% 0% 0% 6%;
         }
         .paragraph_header {
             font-family: "CC-Zoinks", Arial, Helvetica, sans-serif;
@@ -194,5 +211,60 @@ body {
                 .plusitem;
             }
         }
+    }
+    .comments {
+        display: flex;
+        flex-direction: row;
+        span {
+            font-family: "CC-Zoinks", Arial, Helvetica, sans-serif;
+            color: @yellow;
+            font-size: 1.3em;
+            // text-transform: uppercase;
+            line-height: 1;
+        }
+        .user {
+            .name {
+                font-size: 0.6em;
+                font-family: "Arial";
+                font-weight: bold;
+                color: @white;
+                line-height: 2.6;
+            }
+        }
+    }
+    .quoteuser {
+        flex: 3;
+        color: #c4cd64 !important;
+        margin-left: 3%;
+    }
+    .photouser1 {
+        .squarephotobox;
+        background: url(../images/anna.png) top center no-repeat;
+        background-size: cover;
+    }
+    .photouser2 {
+        .squarephotobox;
+        background: url(../images/tony.png) top center no-repeat;
+        background-size: cover;
+    }
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    .paragraph_header {
+        text-align: center;
+        font-family: "CC-Zoinks", Arial, Helvetica, sans-serif;
+        color: @yellow;
+        text-transform: uppercase;
+        .textshadow;
+    }
+    .screenshot {
+        .squarephotobox;
+        background: url(../images/screnshot.png) top center no-repeat;
+        background-size: contain;
+        border-radius: 0;
+        width: 24.6vw;
+        height: 16.6vw;
     }
 }
