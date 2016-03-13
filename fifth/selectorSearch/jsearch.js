@@ -44,11 +44,12 @@ var jSearch = (function() {
             if (selectorsList[i].charAt(0) === ".") {
                 var classObject = new ClassSelector(selectorsList[i]);
                 objectsList.push(classObject);
-            };
-            if (selectorsList[i].charAt(0) === "#") {
+            }
+            else if (selectorsList[i].charAt(0) === "#") {
                 var idObject = new IdSelector(selectorsList[i]);
                 objectsList.push(idObject);
-            } else {
+            }
+            else{
                 var elementObject = new ElementSelector(selectorsList[i]);
                 objectsList.push(elementObject);
             };
