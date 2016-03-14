@@ -28,7 +28,6 @@
 body {
     background: url(../images/background.png) top center no-repeat;
     background-size: cover;
-    // height: 100%
 }
 
 .pagelayout {
@@ -41,11 +40,35 @@ body {
 
 .header {
     .pathbar {
+        display: flex;
+        flex-direction: row;
         margin-top: 3%;
         background: url(../images/pathlogo.png) top left no-repeat;
-        background-size: contain;
+        background-size: cover;
         width: 196px;
         height: 30px;
+        .anker {
+            text-decoration: none;
+            color: @white;
+            font-size: 0.5em;
+            font-family: "Arial";
+            line-height: 3.3;
+            text-align: left;
+            padding-right: 3%;
+            padding-left: 3%;
+            &:first-of-type {
+                padding-left: 11%;
+            }
+            &:hover {
+                color: @yellow;
+            }
+        }
+        span {
+            color: @white;
+            font-size: 0.5em;
+            font-family: "Arial";
+            line-height: 3.3;
+        }
     }
 }
 
@@ -61,6 +84,21 @@ body {
 
 .textshadow {
     text-shadow: -2px 2px black, 2px -2px black;
+}
+
+.install_btn {
+    background: url(../images/btnbackground.png) top center no-repeat;
+    background-size: contain;
+    width: 329px;
+    height: 101px;
+    font-family: "Helvetica-Bold", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1em;
+    text-shadow: 0 2px 0 rgba(255, 255, 255, .5);
+    color: #3a4c00;
+    line-height: 3.7;
+    text-align: center;
 }
 
 .presentation {
@@ -105,20 +143,6 @@ body {
                 }
             }
         }
-        .install_btn {
-            background: url(../images/btnbackground.png) top center no-repeat;
-            background-size: contain;
-            width: 329px;
-            height: 101px;
-            font-family: "Helvetica-Bold", Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 1em;
-            text-shadow: 0 2px 0 rgba(255, 255, 255, .5);
-            color: #3a4c00;
-            line-height: 3.7;
-            text-align: center;
-        }
     }
     .biglogo {
         flex: 2;
@@ -157,7 +181,7 @@ body {
     background: url(../images/anna.png) top center no-repeat;
     background-size: contain;
     flex: 1.16;
-    margin: 18% 6% 0 0;
+    margin: 3% 0% 0 0;
 }
 
 .about {
@@ -249,22 +273,57 @@ body {
     }
 }
 
-.slider {
+.screnshots {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
     .paragraph_header {
         text-align: center;
         font-family: "CC-Zoinks", Arial, Helvetica, sans-serif;
         color: @yellow;
         text-transform: uppercase;
+        margin-bottom: 1%;
         .textshadow;
     }
-    .screenshot {
+    .download_img {
         .squarephotobox;
         background: url(../images/screnshot.png) top center no-repeat;
-        background-size: contain;
+        background-size: cover;
         border-radius: 0;
         width: 24.6vw;
-        height: 16.6vw;
+        height: 16.6vw;        
+    }
+    .arrow {
+        font-family: "Web-Symbols", Arial, Helvetica, sans-serif;
+        color: @yellow;
+        line-height: 1.5;
+        font-size: 1.3em;
+        align-items: center;
+        .textshadow;
+        padding: 4%;
+        &:hover {
+            color: #00f124;
+            cursor: pointer;
+        }
+    }
+    .slider {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.footer {
+    margin-bottom: 5%;
+    .install_btn;
+}
+
+@media screen and (max-device-width: 640px),
+(max-width: 580px) {
+    body {
+        background: url(../images/background.png) no-repeat center center fixed;
+        background-size: cover;
     }
 }
