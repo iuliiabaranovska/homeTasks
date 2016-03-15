@@ -139,8 +139,7 @@ body {
 }
 
 .footer-shadow{
-    padding-bottom: 1%;
-    background: url("../images/shadow-upside-down.png") center top no-repeat;
+    background: url("../images/shadow-upside-down.png") center bottom no-repeat;
     background-size: contain;
     display: flex;
     flex-direction: column;
