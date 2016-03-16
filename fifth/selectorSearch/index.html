@@ -7,16 +7,21 @@
 </head>
 
 <body class="haha">
-    <div class="block"></div>
+    <div class="block">
+        <div>
+            <p id="unic"></p>
+        </div>
+    </div>
     <div id="unicElement"></div>
     <p></p>
 
-    <script type="text/javascript" src="jsearch.js"></script>
+    <script type="text/javascript" src="jsearchwithchildren.js"></script>
     <script>
 
 	//jSearch.all();
 
-    console.log(jSearch.all("div #unicElement"));
+    console.log(jSearch.all("div div #unicElement"));
+
     </script>
 </body>
 
