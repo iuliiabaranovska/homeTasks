@@ -1,37 +1,66 @@
 var jSearch = (function() {
+
     var jSearch = function() {};
     jSearch.all = function(selector) {
         var objectsOfSelectors = [],
-            domElements = [];
+            domElements = [],
+            result=[];
 
-        objectsOfSelectors = splitSelector(selector);
+        objectsOfSelectors = convertToObjectsList(splitSelector(selector));
 
-        // traversingDOM(document.body, function(node) {
-        //     if (node.nodeType === 1 || node.nodeType === 2) {
+        result = getAllDescendants(document.body, objectsOfSelectors);
 
-        //         var satisfy = true;
-
-        //         for (var i = 0; i < objectsOfSelectors.length; i++) {
-        //             satisfy = satisfy && objectsOfSelectors[i].satisfy(node);
-
-        //             if (!satisfy) {
-        //                 break;
-        //             }
-        //         };
-
-        //         if (satisfy) {
-        //             domElements.push(node);
-        //         }
-        //     };
-        // });
-
-        // return domElements;
-        return objectsOfSelectors;
+        return result;
     };
 
-    var traversingDOM = function(node, func) {
-        func(node);
+    var getAllDescendants = function(root, selectorsList) {
+
+        var result = [];
+
+        traversingDOM(root, function(node) {
+
+            for (var i = 0; i < selectorsList.length; i++) {
+
+                var satisfy = true,
+                    children = [];
+
+                if (selectorsList[i] === " ") {
+
+                    children = getAllDescendants(node, selectorsList.slice([i + 1]), true);
+
+                    children.forEach(function(child) {
+                        if (result.indexOf(child) === -1) {
+                            result.push(child);
+                        }
+                    });
+                    satisfy = false;
+                } else {
+                    satisfy = satisfy && selectorsList[i].satisfy(node);
+                }
+
+                if (!satisfy) {
+                    break;
+                }
+            };
+
+            if (satisfy && result.indexOf(node) === -1) {
+                result.push(node);
+            }
+        });
+
+        return result;
+    };
+
+    var traversingDOM = function(node, func, skipNode) {
+
+        if (!skipNode) {
+            if (node.nodeType === 1 || node.nodeType === 2) {
+                func(node);
+            }
+        }
+
         node = node.firstChild;
+
         while (node) {
             traversingDOM(node, func);
             node = node.nextSibling;
@@ -40,63 +69,61 @@ var jSearch = (function() {
 
     var splitSelector = function(selector) {
         var selectorsList = [],
-            word = "",
-            laststr = "",
-            newSelectorsList = [],
-            specialSymbols=[];
+            word = "";
 
         selector = selector.trim();
 
-
-
         for (var i = 0; i < selector.length; i++) {
 
-            if (selector[i]==="."
-             || selector[i]==="#"
-             || selector[i]===" ") {
+            if (selector[i] === "." || selector[i] === "#" || selector[i] === " ") {
 
                 if (word !== "") {
                     selectorsList.push(word);
                     word = "";
-
                 };
-
             };
-            word += selector[i];
+
+            if(selector[i] === " "){
+                selectorsList.push(" ");
+            } else {
+                word += selector[i];
+            }
         };
 
         selectorsList.push(word);
 
-        for (var i = 0; i < selectorsList.length; i++) {
+        return selectorsList;
+    };
 
-            var item = selectorsList[i];
+    var convertToObjectsList = function(selectorsList) {
 
-            if (item === " ") {
-                item = item.concat(selectorsList[i + 1]);
-                i += 1;
+        var objectsList = [];
+
+        selectorsList.forEach(function(item) {
+            switch (item.charAt(0)) {
+                case " ":
+                    {
+                        objectsList.push(item);
+                        break;
+                    }
+                case ".":
+                    {
+                        objectsList.push(new ClassSelector(item));
+                        break;
+                    }
+                case "#":
+                    {
+                        objectsList.push(new IdSelector(item));
+                        break;
+                    }
+                default:
+                    {
+                        objectsList.push(new ElementSelector(item));
+                    }
             };
+        });
 
-            newSelectorsList.push(item);
-        };
-
-        return newSelectorsList;
-
-        // var objectsList = [];
-        // // selectorsList = selector.split(' ');
-
-        // for (var i = 0; i < selectorsList.length; i++) {
-        //     if (selectorsList[i].charAt(0) === ".") {
-        //         var classObject = new ClassSelector(selectorsList[i]);
-        //         objectsList.push(classObject);
-        //     } else if (selectorsList[i].charAt(0) === "#") {
-        //         var idObject = new IdSelector(selectorsList[i]);
-        //         objectsList.push(idObject);
-        //     } else {
-        //         var elementObject = new ElementSelector(selectorsList[i]);
-        //         objectsList.push(elementObject);
-        //     };
-        // };
-        // return objectsList;
+        return objectsList;
     };
 
     var ElementSelector = (function() {
