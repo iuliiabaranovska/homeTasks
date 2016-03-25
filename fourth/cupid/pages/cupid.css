@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: medium; }
+
+@font-face {
+  font-family: "Trebuchet MS";
+  src: url("../fonts/TrebuchetMS.ttf") format("truetype"); }
+body {
+  font: 100% Helvetica, sans-serif;
+  font-size: medium;
+  background-color: #f7f7f7; }
+
+header {
+  background-color: #eaeaea; }
+  header div {
+    width: 85%;
+    margin: 0 auto 0 auto; }
+  header .item {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #547acd;
+    font-size: large;
+    line-height: 4;
+    margin-right: 3em; }
+  header .item_active {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #547acd;
+    font-size: large;
+    line-height: 4;
+    margin-right: 3em;
+    color: #e979de;
+    background: url("../images/menu-item.png") center top no-repeat;
+    background-size: cover;
+    padding: 0.5em 0.35em 0.9em 0.6em; }
+
+content h1 {
+  font: 100% "Trebuchet MS", sans-serif;
+  font-size: xx-large;
+  color: #547acd;
+  font-weight: bold;
+  width: 85%;
+  margin: 0 auto 0 auto;
+  line-height: 3; }
+
+/*# sourceMappingURL=cupid.css.map */

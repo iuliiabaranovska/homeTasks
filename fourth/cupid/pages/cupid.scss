@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: medium;
+}
+
+@font-face {
+    font-family: "Trebuchet MS";
+    src: url("../fonts/TrebuchetMS.ttf") format("truetype");
+}
+
+$caption-font: "Trebuchet MS",
+sans-serif;
+$caption-color: #547acd;
+$active-color: #e979de;
+$font-stack: Helvetica,
+sans-serif;
+$primary-color: #f7f7f7;
+body {
+    font: 100% $font-stack;
+    font-size: medium;
+    background-color: $primary-color;
+}
+
+@mixin layout {
+    width: 85%;
+    margin: 0 auto 0 auto;
+}
+
+header {
+    background-color: #eaeaea;
+    div {
+        @include layout;
+    }
+    @mixin item {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $caption-color;
+        font-size: large;
+        line-height: 4;
+        margin-right: 3em;
+    }
+    .item {
+        @include item;
+    }
+    .item_active {
+        @include item;
+        color: $active-color;
+        background: url("../images/menu-item.png") center top no-repeat;
+        background-size: cover;
+        padding: 0.5em 0.35em 0.9em 0.6em;
+    }
+}
+
+content {
+    h1 {
+        font: 100% $caption-font;
+        font-size: xx-large;
+        color: $caption-color;
+        font-weight: bold;
+        @include layout;
+        line-height: 3;
+    }
+}
+
+// .Wanna_meet_local_singles_ {
+//   font-size: 26px;
+//   font-family: "Trebuchet MS";
+//   color: rgb(84, 122, 205);
+//   font-weight: bold;
+//   line-height: 0.692;
+//   text-align: left;
+//   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+//   position: absolute;
+//   left: 136px;
+//   top: 91.705px;
+//   z-index: 234;
+// }
