@@ -3,7 +3,11 @@ function handleDragStart(e) {
     this.style.opacity = '0.4';
     this.setAttribute('draggable', 'true');
     e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.innerHTML);
+
+    var wrap = document.createElement('div');
+    wrap.appendChild(this.cloneNode(true));
+
+    e.dataTransfer.setData('text/html', wrap.innerHTML);
 
     return true;
 }
@@ -26,8 +30,6 @@ function handleDragOver(e) {
     return false;
 }
 
-
-
 function handleDragLeave(e) {
 
     this.classList.remove('over');
@@ -35,6 +37,7 @@ function handleDragLeave(e) {
 }
 
 function handleDrop(e) {
+    
     this.classList.remove('over');
 
     if (e.stopPropagation) {
@@ -43,15 +46,18 @@ function handleDrop(e) {
 
     this.innerHTML = e.dataTransfer.getData('text/html');
 
+    var firstChild=this.firstChild;
+    firstChild.classList.add('center');
+    firstChild.style.opacity='1';
+
     return false;
 }
 
 function handleDragEnd(e) {
 
     if (e.dataTransfer.dropEffect === "move") { this.style.visibility = 'hidden'; }
-    
+
     console.log('Drag End is occured !');
-    console.log(e);
 }
 
 var mouse = document.querySelector('.mouse');
