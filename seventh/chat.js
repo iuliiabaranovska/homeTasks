@@ -40,6 +40,7 @@ var chat = {
 };
 
 var user = {
+    username: "",
     receivedMessage: function(message) {
         console.log(message);
     }
@@ -48,7 +49,7 @@ var user = {
 var Message = (function() {
 
     function Message(recipient, messageText) {
-    	
+
         if (!(this instanceof Message)) {
             return new Message(recipient, messageText);
         }
@@ -65,5 +66,5 @@ var Message = (function() {
 chat.subscribe(user.receivedMessage, "stepan");
 
 chat.sendMessage(new Message("petro", "hello, petro!!!"));
-chat.sendMessage(new Message("stepan", "hello, petro!!!"));
+chat.sendMessage(new Message("stepan", "hello, stepan!!!"));
 chat.sendMessage(new Message("petro", "hello, petro, one more time!!!"));

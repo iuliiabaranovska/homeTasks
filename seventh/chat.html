@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Chat</title>
-	<link rel="stylesheet" type="text/css" href="chat.css">
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="chat.css">
 </head>
+
 <body>
-<form>
-	<label for="username">John</label>
-	<input type="text" id="username">
-</form>
-	<script type="text/javascript" src="chat.js"></script>
+    <div class="exchange">
+        <div class="recipients">
+            <form class="recipeentForm">
+                <label>{{username}}</label>
+                <div class="receivedMessageBlock" id="block1"><span id="message1">{{message from user}}</span></div>
+            </form>
+            <form class="recipeentForm">
+                <label>{{username}}</label>
+                <div class="receivedMessageBlock" id="block2"><span id="message2">{{message from user}}</span></div>
+            </form>
+            <form class="recipeentForm">
+                <label>{{username}}</label>
+                <div class="receivedMessageBlock" id="block3"><span id="message3">{{message from user}}</span></div>
+            </form>
+        </div>
+        <div class="sender">
+            <form class="senderForm">
+                <select class="dropdown">
+                    <option value="">To whom:</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+                <textarea type="text" class="senddingMessage" placeholder="Type message here"></textarea>                
+            </form>
+            <button type="button" class="sendButton" id="button">Send</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="mustachejs/mustache.min.js"></script>
+    <script type="text/javascript" src="chat.js"></script>
 </body>
+
 </html>
