@@ -52,6 +52,14 @@ li.userActive {
     display: inline-block;   
 }
 
+.message{
+	display:block;
+	height: 2em;
+}
+
+.time{
+	font-weight: bold;
+}
 .senderForm {
     margin: 3% 3% 0 3%;
     display: flex;

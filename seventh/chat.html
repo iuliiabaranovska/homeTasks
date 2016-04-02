@@ -11,7 +11,7 @@
     <div class="exchange">
             <ul class="recipientsList" id="recipientsList">
             </ul>
-            <div class="userMessage" id="receivedMessageBlock"><span class="message" id="message">{{username}}</span></div>
+            <div class="userMessage" id="receivedMessageBlock">{{#messagesList}}<p class="message" id="message"><span class="time">{{timeSent}}: </span>{{messageText}}</p>{{/messagesList}}</div>
         <div class="sender">
             <form class="senderForm">
                 <select class="dropdown" id="dropdown">

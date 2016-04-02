@@ -72,15 +72,29 @@ var User = function(username) {
 
 var Message = (function() {
 
+    var options = {
+        weekday: "long",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+    };
+
     function Message(recipient, messageText) {
 
         if (!(this instanceof Message)) {
             return new Message(recipient, messageText);
         }
 
+        var time = new Date();
+
         this.recipient = recipient;
         this.messageText = messageText;
-        this.timeSent = new Date();
+        this.timeSent = function() {
+            return time.toLocaleDateString("en-us", options);
+        }
     }
 
     return Message;
