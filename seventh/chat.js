@@ -39,10 +39,34 @@ var chat = {
     }
 };
 
-var user = {
-    username: "",
-    receivedMessage: function(message) {
-        console.log(message);
+var User = function(username) {
+
+    this.username = username;
+    this.messagesList = [];
+
+    this.receiveMessage = function(message) {
+        this.messagesList.push(message);
+
+        var item = document.getElementById(this.username);
+
+        var event; // The custom event that will be created
+
+        if (document.createEvent) {
+            event = document.createEvent("HTMLEvents");
+            event.initEvent("click", true, true);
+        } else {
+            event = document.createEventObject();
+            event.eventType = "click";
+        }
+
+        event.eventName = "click";
+
+        if (document.createEvent) {
+            item.dispatchEvent(event);
+        } else {
+            item.fireEvent("on" + event.eventType, event);
+        }
+
     }
 }
 
@@ -62,9 +86,68 @@ var Message = (function() {
     return Message;
 }());
 
+var john = new User('John');
+var max = new User('Max');
+var niko = new User('Niko');
 
-chat.subscribe(user.receivedMessage, "stepan");
+var usersList = [john, max, niko];
 
-chat.sendMessage(new Message("petro", "hello, petro!!!"));
-chat.sendMessage(new Message("stepan", "hello, stepan!!!"));
-chat.sendMessage(new Message("petro", "hello, petro, one more time!!!"));
+chat.subscribe(function(msg) { john.receiveMessage(msg); }, john.username);
+chat.subscribe(function(msg) { max.receiveMessage(msg); }, max.username);
+chat.subscribe(function(msg) { niko.receiveMessage(msg); }, niko.username);
+
+var sendButton = document.getElementById('button');
+
+sendButton.addEventListener('click', function() {
+
+    var recipient = document.getElementById('dropdown'),
+        text = document.getElementById('sendingMessage'),
+        message = new Message(recipient.value, text.value);
+
+    chat.sendMessage(message);
+})
+
+var UserManager = function() {
+    var recipientsList = document.getElementById('recipientsList');
+    var receivedMessageBlock = document.getElementById('receivedMessageBlock');
+
+    this.drawUsers = function(users) {
+        users.forEach(drawOneUser);
+    }
+
+    var selectedUser;
+
+    drawOneUser = function(userObject, index) {
+
+        var item = document.createElement('li');
+        item.innerHTML = userObject.username;
+        item.className = 'user';
+        item.id = userObject.username;
+        item.onclick = function() {
+
+            if (selectedUser) {
+                selectedUser.classList.toggle('userActive', false);
+            }
+            setUserInfo(userObject);
+            this.classList.toggle('userActive');
+            receivedMessageBlock.classList.toggle('receivedMessageBlock', true);
+            selectedUser = this;
+
+        }
+        recipientsList.appendChild(item);
+    }
+
+    var template = receivedMessageBlock.innerHTML;
+
+    var setUserInfo = function(userObject) {
+        var newContent = Mustache.to_html(template, userObject);
+        receivedMessageBlock.innerHTML = newContent;
+    }
+
+    this.setUserInfoNodeHTML = function(content) {
+        receivedMessageBlock.innerHTML = content;
+    }
+}
+
+var userManager = new UserManager();
+userManager.drawUsers(usersList);

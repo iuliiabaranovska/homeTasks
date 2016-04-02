@@ -9,28 +9,18 @@
 
 <body>
     <div class="exchange">
-        <div class="recipients">
-            <form class="recipeentForm">
-                <label>{{username}}</label>
-                <div class="receivedMessageBlock" id="block1"><span id="message1">{{message from user}}</span></div>
-            </form>
-            <form class="recipeentForm">
-                <label>{{username}}</label>
-                <div class="receivedMessageBlock" id="block2"><span id="message2">{{message from user}}</span></div>
-            </form>
-            <form class="recipeentForm">
-                <label>{{username}}</label>
-                <div class="receivedMessageBlock" id="block3"><span id="message3">{{message from user}}</span></div>
-            </form>
-        </div>
+            <ul class="recipientsList" id="recipientsList">
+            </ul>
+            <div class="userMessage" id="receivedMessageBlock"><span class="message" id="message">{{username}}</span></div>
         <div class="sender">
             <form class="senderForm">
-                <select class="dropdown">
-                    <option value="">To whom:</option>
-                    <option value="1">Male</option>
-                    <option value="0">Female</option>
+                <select class="dropdown" id="dropdown">
+                    <option value="" selected hidden>To whom:</option>
+                    <option value="John">John</option>
+                    <option value="Max">Max</option>
+                    <option value="Niko">Niko</option>
                 </select>
-                <textarea type="text" class="senddingMessage" placeholder="Type message here"></textarea>                
+                <textarea type="text" class="sendingMessage" id="sendingMessage" placeholder="Type message here"></textarea>
             </form>
             <button type="button" class="sendButton" id="button">Send</button>
         </div>
