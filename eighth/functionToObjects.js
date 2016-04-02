@@ -54,7 +54,7 @@ var UserManager = function(usersList) {
 
     var template = userInfoNode.innerHTML.replace(/{{&gt;/g, "{{>");
 
-    var partials = { address: "{{city}}, {{state}} {{zip}}" };
+    var partials = { address: "{{city}}, {{countryState}} {{zip}}" };
 
     var setUserInfo = function(userObject) {
         var newContent = Mustache.to_html(template, userObject, partials);
@@ -76,5 +76,5 @@ var usersList = [
 ];
 
 var userManager = new UserManager(usersList);
-userManager.setUserInfoNodeHTML('');
+//userManager.setUserInfoNodeHTML('');
 userManager.drawUsers(usersList);
