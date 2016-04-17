@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>http requests</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <style>
+    ul {
+        list-style: none;
+        padding: 0px;
+    }
+    
+    li.user {
+        border: 1px solid #000;
+        margin: 10px;
+        padding: 20px;
+        background: lightgrey;
+    }
+    
+    li.userActive {
+        border: 1px solid #000;
+        margin: 10px;
+        padding: 20px;
+        font-weight: bold;
+        background: yellow;
+    }
+    
+    li.userWithBorder {
+        border-width: 20px;
+    }
+    
+    form {
+        width: 300%;
+        height: 100%;
+        margin: 1em;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    form>div {
+        padding: 0.2em;
+    }
+    
+    form>div>label {
+        flex: 1;
+        font-weight: bold;
+    }
+    
+    form>div>input {
+        flex: 3;
+    }
+    
+    button {
+        height: 4em;
+        width: 13.1em;
+        margin: 1em 0 0 0;
+    }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td valign="top">
+            <button type="button" id="newUserButton">NEW USER</button>
+                <ul id="usersListNode">
+                </ul>
+            </td>
+            <td valign="top">
+                <form action="http://heedio.me:8383" id="userInfoNode">
+                    <div>
+                        <label for="name">Name:</label>
+                        </br>
+                        <input type="text" name="name" value="{{name}}">
+                    </div>
+                    <div>
+                        <label for="second">Second Name:</label>
+                        </br>
+                        <input type="text" name="second" value="{{second}}">
+                    </div>
+                    <div>
+                        {{#fullTime}}
+                        <label for="phone">Mobile number:</label>
+                        </br>
+                        <input type="text" name="phone" value="{{phone}}"> {{/fullTime}}
+                    </div>
+                    <div>
+                        <label for="avatar">Avatar:</label>
+                        </br>
+                        <img src="{{avatar}}" style="height: 70px; width: 70px;">
+                        <input type="text" name="avatar" value="{{avatar}}" id="avatarInput"></input>
+                    </div>
+                    <div>
+                        <label for="info">Info:</label>
+                        </br>
+                        <input type="text" name="info" value="{{info}}">
+                    </div>
+                    <div>
+                        <label for="skills">Skills:</label>
+                        </br>
+                        <input type="text" name="skills" value="{{#skills}}{{.}}{{/skills}}">
+                    </div>
+                    <div>
+                        <label for="address">Address:</label>
+                        </br>
+                        <input type="text" name="address" value="{{#address}}{{>address}}{{/address}}">
+                    </div>                    
+                    <button type="button" id="sendButton">SEND</button>
+                </form>
+            </td>
+        </tr>
+    </table>    
+    <script type="text/javascript" src="jquery/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="mustachejs/mustache.min.js"></script>
+    <script type="text/javascript" src="functionToObjects.js"></script>
+    <script type="text/javascript" src="httpHelper.js"></script>
+    <script type="text/javascript" src="httpManager.js"></script>
+</body>
+
+</html>
