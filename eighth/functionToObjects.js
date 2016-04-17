@@ -76,5 +76,5 @@ var usersList = [
 ];
 
 var userManager = new UserManager(usersList);
-//userManager.setUserInfoNodeHTML('');
+userManager.setUserInfoNodeHTML('');
 userManager.drawUsers(usersList);
