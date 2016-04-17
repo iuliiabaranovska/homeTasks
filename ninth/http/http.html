@@ -63,13 +63,14 @@
     <table>
         <tr>
             <td valign="top">
-            <button type="button" id="newUserButton">NEW USER</button>
+                <button type="button" id="newUserButton">NEW USER</button>
                 <ul id="usersListNode">
                 </ul>
             </td>
             <td valign="top">
                 <form action="http://heedio.me:8383" id="userInfoNode">
                     <div>
+                        <input type="hidden" name="id" value="{{id}}"></input>
                         <label for="name">Name:</label>
                         </br>
                         <input type="text" name="name" value="{{name}}">
@@ -105,12 +106,12 @@
                         <label for="address">Address:</label>
                         </br>
                         <input type="text" name="address" value="{{#address}}{{>address}}{{/address}}">
-                    </div>                    
+                    </div>
                     <button type="button" id="sendButton">SEND</button>
                 </form>
             </td>
         </tr>
-    </table>    
+    </table>
     <script type="text/javascript" src="jquery/jquery-1.11.3.js"></script>
     <script type="text/javascript" src="mustachejs/mustache.min.js"></script>
     <script type="text/javascript" src="functionToObjects.js"></script>

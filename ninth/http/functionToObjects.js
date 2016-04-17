@@ -1,4 +1,5 @@
-var User = function(name, info, second, avatar, newfield, skills, isFullTime, phone, city, countryState, zip) {
+var User = function(id, name, info, second, avatar, newfield, skills, isFullTime, phone, city, countryState, zip) {
+    this.id = parseInt(id) || 0;
     this.name = name;
     this.info = info;
     this.second = second;
@@ -55,18 +56,14 @@ var UserManager = function() {
     this.setUserInfo = function(userObject) {
         var newContent = Mustache.to_html(template, userObject, partials);
         userInfoNode.innerHTML = newContent;
-    }
+    };
 
     this.setUserInfoNodeHTML = function(content) {
         userInfoNode.innerHTML = content;
-    }
-}
+    };
 
-var usersList = [
-    new User('John', 'likes bowling', 'Second', 'http://www.iconarchive.com/download/i51046/hopstarter/halloween-avatars/Jason.ico',
-        'asdasdasdasd', ['EcmaScript', 'PHP', 'Java'], true, "617-123-4567", "Boston", "MA", "02106"),
-    new User('Pavel', 'plays football', 'Second', 'http://www.iconarchive.com/download/i51026/hopstarter/halloween-avatars/Alien.ico',
-        'asdasdasdasd', ['JavaScript', 'C#', 'Paskal'], false, "617-987-6543", "London", "GH", "45676"),
-    new User('Igor', 'drinks a lot', 'Second', 'http://files.softicons.com/download/internet-cons/halloween-avatars-icons-by-deleket/ico/Zombie%202.ico',
-        'asdasdasdasd', ['C++', 'Ruby'], true, "617-111-2323", "Amsterdam", "JJ", "69696")
-];
+    this.eviscerateUsersList = function() {
+        usersList.innerHTML = '';
+        index = 0;
+    };
+}
