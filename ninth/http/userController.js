@@ -1,4 +1,4 @@
-var userManager = new UserManager();
+var userManager = new UserView();
 userManager.setUserInfoNodeHTML('');
 
 var loadUsers = function() {
