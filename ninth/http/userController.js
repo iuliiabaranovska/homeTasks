@@ -1,7 +1,7 @@
 var userManager = new UserView();
 userManager.setUserInfoNodeHTML('');
 
-var loadUsers = function() {
+var getUsers = function() {
     HttpHelper.getAsync('http://heedio.me:8383', function(users) {
         //users = users.slice(users.length - 10);
         var convertedUsers = users.map(function(user) {
@@ -38,7 +38,7 @@ var getInfo = function() {
 var $newUserButton = $('#newUserButton');
 var $userInfoNode = $('#userInfoNode');
 
-loadUsers();
+getUsers();
 
 $newUserButton.on('click', function() {
     userManager.setUserInfo(new User());
@@ -50,15 +50,16 @@ $userInfoNode.on('change', '#avatarInput', function() {
 
 $userInfoNode.on('click', '#sendButton', function() {
     var user = getInfo();
+    var params = JSON.stringify(user);
     if (user.id === "0") {
-        HttpHelper.postAsync('http://heedio.me:8383', user, function() {
+        HttpHelper.postAsync('http://heedio.me:8383', params, function() {
             console.log("Successfully post!");
-            loadUsers();
+            getUsers();
         });
     } else {
-        HttpHelper.putAsync('http://heedio.me:8383/' + user.id, user, function() {
+        HttpHelper.putAsync('http://heedio.me:8383/' + user.id, params, function() {
             console.log("Successfully put!");
-            loadUsers();
+            getUsers();
         });
     }
 
