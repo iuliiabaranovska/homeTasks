@@ -1,27 +1,5 @@
-var userManager = new UserView();
-userManager.setUserInfoNodeHTML('');
-
-var getUsers = function() {
-    HttpHelper.getAsync('http://heedio.me:8383', function(users) {
-        //users = users.slice(users.length - 10);
-        var convertedUsers = users.map(function(user) {
-            return new User(user.id,
-                user.name || "No name",
-                user.info || "No info",
-                user.second || "No second",
-                user.avatar || "No avatar",
-                user.newfield || "No info",
-                user.skills || "No skills",
-                user.isFullTime || "No isFull time",
-                user.phone || "No phone",
-                user.city || "No city",
-                user.countryState || "No state",
-                user.zip || "No zip");
-        });
-
-        userManager.drawUsers(convertedUsers);
-    });
-};
+var userView = new UserView();
+userView.setUserInfoNodeHTML('');
 
 var getInfo = function() {
     var user = new User();
@@ -38,10 +16,14 @@ var getInfo = function() {
 var $newUserButton = $('#newUserButton');
 var $userInfoNode = $('#userInfoNode');
 
-getUsers();
+var service = new HttpUserService();
+service.getUsers(function(users) {
+        //users = users.slice(users.length - 10);
+        userView.drawUsers(users);
+    });
 
 $newUserButton.on('click', function() {
-    userManager.setUserInfo(new User());
+    userView.setUserInfo(new User());
 });
 
 $userInfoNode.on('change', '#avatarInput', function() {
@@ -50,18 +32,10 @@ $userInfoNode.on('change', '#avatarInput', function() {
 
 $userInfoNode.on('click', '#sendButton', function() {
     var user = getInfo();
-    var params = JSON.stringify(user);
-    if (user.id === "0") {
-        HttpHelper.postAsync('http://heedio.me:8383', params, function() {
-            console.log("Successfully post!");
-            getUsers();
-        });
-    } else {
-        HttpHelper.putAsync('http://heedio.me:8383/' + user.id, params, function() {
-            console.log("Successfully put!");
-            getUsers();
-        });
-    }
 
-    userManager.eviscerateUsersList();
+    service.saveUser(user, function () {
+        service.getUsers(function(users) { userView.drawUsers(users); });
+    });
+
+    userView.eviscerateUsersList();
 });
