@@ -30,7 +30,7 @@ var HttpHelper = (function() {
             if (xmlHttp.readyState === statusReady && xmlHttp.status === statusOk && callback !== undefined) {
                 callback(parseJsonOrFalse(xmlHttp.responseText) || xmlHttp.responseText);
             }
-        }                
+        }
 
         xmlHttp.send(params);
     };

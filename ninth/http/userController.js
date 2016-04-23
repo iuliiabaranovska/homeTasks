@@ -16,7 +16,8 @@ var getInfo = function() {
 var $newUserButton = $('#newUserButton');
 var $userInfoNode = $('#userInfoNode');
 
-var service = new HttpUserService();
+var service = new LocalStorageUserService();
+
 service.getUsers(function(users) {
         //users = users.slice(users.length - 10);
         userView.drawUsers(users);
@@ -34,8 +35,8 @@ $userInfoNode.on('click', '#sendButton', function() {
     var user = getInfo();
 
     service.saveUser(user, function () {
-        service.getUsers(function(users) { userView.drawUsers(users); });
+        service.getUsers(function(users) {             
+            userView.eviscerateUsersList();
+            userView.drawUsers(users); });
     });
-
-    userView.eviscerateUsersList();
 });

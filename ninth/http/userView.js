@@ -2,7 +2,7 @@ var UserView = function() {
 
     var usersList = document.getElementById('usersListNode');
     var userInfoNode = document.getElementById('userInfoNode');
-    var index = 0;
+    var index = 1;
 
     this.drawUsers = function(usersList) {
         usersList.forEach(drawOneUser);
@@ -45,6 +45,6 @@ var UserView = function() {
 
     this.eviscerateUsersList = function() {
         usersList.innerHTML = '';
-        index = 0;
+        index = 1;
     };
 }
